@@ -1,11 +1,12 @@
 import Inquiry from "../models/Inquiry.js";
-import sendEmail from "../utils/sendEmail.js";
+// import sendEmail from "../utils/sendEmail.js";
+
 export const createInquiry = async (req, res) => {
   try {
-
     const inquiry = await Inquiry.create(req.body);
 
-    // EMAIL MESSAGE
+    // EMAIL TEMPORARILY DISABLED
+    /*
     const message = `
 New Music Inquiry
 
@@ -22,14 +23,12 @@ WhatsApp: ${req.body.whatsapp}
 Email: ${req.body.email}
 `;
 
-    // SEND EMAIL
     await sendEmail({
-  subject: "New Vocal Academy Inquiry",
-
-  message,
-
-  replyTo: req.body.email,
-});
+      subject: "New Vocal Academy Inquiry",
+      message,
+      replyTo: req.body.email,
+    });
+    */
 
     res.status(201).json({
       success: true,
@@ -37,7 +36,6 @@ Email: ${req.body.email}
     });
 
   } catch (error) {
-
     console.log(error);
 
     res.status(500).json({
