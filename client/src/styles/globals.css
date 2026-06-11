@@ -1,0 +1,275 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============ ROOT VARIABLES ============ */
+:root {
+  --gold-primary: #d49520;
+  --gold-light: #eec660;
+
+  --bg-primary: #050506;
+  --bg-secondary: #0a0a0b;
+  --bg-tertiary: #141416;
+
+  --text-primary: #f5f1e8;
+  --text-secondary: #a1a1aa;
+
+  --border-subtle: rgba(238, 198, 96, 0.12);
+}
+
+/* ============ BASE ============ */
+@layer base {
+  * {
+    @apply border-gold-900/10;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-obsidian-950 text-ivory font-sans;
+
+    background-image:
+      radial-gradient(
+        ellipse 80% 50% at 50% -20%,
+        rgba(212, 149, 32, 0.08),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 80% 80%,
+        rgba(212, 149, 32, 0.04),
+        transparent
+      );
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tight;
+  }
+
+  img,
+  video,
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    @apply bg-gold-500/30 text-ivory;
+  }
+
+  /* ===== Scrollbar ===== */
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-obsidian-950;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold-900/40 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold-700/60;
+  }
+}
+
+/* ============ COMPONENTS ============ */
+@layer components {
+  /* ===== Glass ===== */
+
+  .glass {
+    @apply backdrop-blur-md lg:backdrop-blur-xl
+           bg-white/[0.03]
+           border border-white/[0.08];
+
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+      0 20px 60px -20px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-gold {
+    @apply backdrop-blur-md lg:backdrop-blur-xl
+           bg-gold-500/[0.04]
+           border border-gold-500/[0.12];
+
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.03),
+      0 20px 60px -20px rgba(212, 149, 32, 0.12);
+  }
+
+  /* ===== Text ===== */
+
+  .text-gradient-gold {
+    @apply bg-gold-gradient bg-clip-text text-transparent;
+  }
+
+  /* ===== Buttons ===== */
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2
+           px-5 sm:px-7
+           py-3 sm:py-3.5
+           bg-gold-gradient
+           text-obsidian-950
+           font-semibold
+           rounded-full
+           shadow-gold-glow
+           hover:shadow-gold-glow-lg
+           transition-all duration-300
+           hover:scale-[1.02]
+           active:scale-[0.98]
+           overflow-hidden;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           px-5 sm:px-7
+           py-3 sm:py-3.5
+           border border-gold-500/30
+           text-ivory
+           font-medium
+           rounded-full
+           hover:bg-gold-500/10
+           hover:border-gold-500/60
+           transition-all duration-300;
+  }
+
+  /* ===== Layout ===== */
+
+  .section-padding {
+    @apply px-4
+           sm:px-6
+           lg:px-16
+           xl:px-24
+           py-14
+           sm:py-20
+           lg:py-32;
+  }
+
+  .container-premium {
+    @apply max-w-7xl mx-auto w-full;
+  }
+
+  /* ===== Inputs ===== */
+
+  .premium-input {
+    width: 100%;
+    padding: 16px 18px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border: 1px solid rgba(255, 180, 0, 0.15);
+
+    color: white;
+
+    outline: none;
+
+    transition: all 0.3s ease;
+  }
+
+  .premium-input:focus {
+    border-color: rgba(255, 180, 0, 0.5);
+
+    box-shadow:
+      0 0 20px rgba(255, 180, 0, 0.08);
+  }
+
+  .premium-input option {
+    background: #0a0a0a;
+  }
+
+  /* ===== Effects ===== */
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(238, 198, 96, 0.15) 50%,
+      transparent 100%
+    );
+
+    background-size: 200% 100%;
+
+    @apply animate-shimmer;
+  }
+
+  .noise-overlay::before {
+    content: '';
+
+    @apply absolute inset-0
+           bg-noise
+           opacity-[0.03]
+           mix-blend-overlay
+           pointer-events-none;
+  }
+}
+
+/* ============ UTILITIES ============ */
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .mask-fade-bottom {
+    mask-image: linear-gradient(
+      180deg,
+      #000 60%,
+      transparent 100%
+    );
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* ===== Mobile Glow Optimization ===== */
+
+  .mobile-glow {
+    filter: blur(60px);
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-glow {
+      filter: blur(140px);
+    }
+  }
+
+  /* ===== Safer Fullscreen Sections ===== */
+
+  .safe-screen {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+}
