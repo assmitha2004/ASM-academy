@@ -130,7 +130,7 @@ const scrollToCurriculum = () => {
         {/* ================================================= */}
 
         <section className="relative min-h-screen overflow-hidden">
-          {{/* IMAGE — DESKTOP ONLY */}
+          {/* IMAGE — DESKTOP ONLY */}
 <div className="absolute inset-0 hidden lg:block">
  <img
                 src={heroImage}
