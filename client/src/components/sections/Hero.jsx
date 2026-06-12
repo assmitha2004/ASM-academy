@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   motion,
   useScroll,
@@ -26,12 +26,24 @@ import heroImage from "../../assets/images/aadithya1.jpeg";
 
 const Hero = () => {
   const containerRef = useRef(null);
+  const [isSmallScreen, setIsSmallScreen] =
+  useState(null);
 
-  // BELOW LAPTOP
-  const isSmallScreen =
-    typeof window !== "undefined" &&
-    window.innerWidth < 1024;
+useEffect(() => {
+  const checkScreen = () => {
+    setIsSmallScreen(window.innerWidth < 1024);
+  };
 
+  checkScreen();
+
+  window.addEventListener("resize", checkScreen);
+
+  return () =>
+    window.removeEventListener(
+      "resize",
+      checkScreen
+    );
+}, []);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
@@ -48,20 +60,19 @@ const Hero = () => {
     [0, 0.8],
     [1, 0]
   );
-
+if (isSmallScreen === null) return null;
   return (
     <section
       ref={containerRef}
-      className={`
+      className="
         relative
         safe-screen
         overflow-hidden
-        ${
-          isSmallScreen
-            ? "bg-black"
-            : "bg-gradient-to-b from-black via-[#040404] to-black"
-        }
-      `}
+        bg-gradient-to-b
+        from-black
+        via-[#040404]
+        to-black
+      "
     >
       {/* BACKGROUND */}
       <motion.div
@@ -73,127 +84,189 @@ const Hero = () => {
           overflow-hidden
         "
       >
+        {/* ====================================== */}
+        {/* MOBILE + TABLET PREMIUM HERO */}
+        {/* ====================================== */}
 
-        {/* IMAGE ONLY DESKTOP */}
-        {!isSmallScreen && (
-          <div
-            className="
-              absolute
-              inset-0
-              overflow-hidden
-              z-0
-            "
-          >
-            <img
-              src={heroImage}
-              alt="Aadithya SM"
+        {isSmallScreen ? (
+          <>
+            {/* FULL BACKGROUND IMAGE */}
+            <div
               className="
                 absolute
-                md:right-[-8%]
-                lg:right-[-6%]
-                top-0
-                h-[100%]
-                lg:h-[122%]
-                w-auto
-                max-w-none
-                object-cover
-                object-top
-                lg:scale-[1.08]
-                brightness-[0.82]
-                contrast-[1.08]
-                saturate-[1.12]
-                opacity-100
+                inset-0
+                overflow-hidden
+                z-0
+              "
+            >
+              <img
+                src={heroImage}
+                alt="Aadithya SM"
+                className="
+                  absolute
+                  inset-0
+                  w-full
+                  h-full
+                  object-cover
+                  scale-[1.12]
+                  blur-[8px]
+                  brightness-[0.45]
+                  opacity-70
+                "
+              />
+            </div>
+
+            {/* DARK CINEMATIC OVERLAY */}
+            <div
+              className="
+                absolute
+                inset-0
+                z-10
               "
               style={{
-                maskImage:
-                  "linear-gradient(to left, black 30%, transparent 100%)",
-
-                WebkitMaskImage:
-                  "linear-gradient(to left, black 30%, transparent 100%)",
+                background: `
+                  linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.55) 0%,
+                    rgba(0,0,0,0.72) 25%,
+                    rgba(0,0,0,0.84) 55%,
+                    rgba(0,0,0,0.95) 100%
+                  )
+                `,
               }}
             />
-          </div>
-        )}
 
-        {/* OVERLAY */}
-        <div
-          className="
-            absolute
-            inset-0
-            z-10
-            pointer-events-none
-          "
-          style={{
-            background: isSmallScreen
-              ? `
-                linear-gradient(
-                  to bottom,
-                  #000000,
-                  #000000
-                )
-              `
-              : `
-                linear-gradient(
-                  to right,
-                  rgba(0,0,0,1) 0%,
-                  rgba(0,0,0,0.98) 28%,
-                  rgba(0,0,0,0.92) 48%,
-                  rgba(0,0,0,0.55) 70%,
-                  rgba(0,0,0,0.12) 100%
-                )
-              `,
-          }}
-        />
+            {/* GOLD TINT */}
+            <div
+              className="
+                absolute
+                inset-0
+                z-10
+              "
+              style={{
+                background: `
+                  radial-gradient(
+                    circle at center,
+                    rgba(255,180,40,0.08),
+                    transparent 60%
+                  )
+                `,
+              }}
+            />
+          </>
+        ) : (
+          <>
+            {/* ====================================== */}
+            {/* DESKTOP ORIGINAL — UNCHANGED */}
+            {/* ====================================== */}
 
-        {/* DESKTOP ATMOSPHERE ONLY */}
-        {!isSmallScreen && (
-          <div
-            className="
-              absolute
-              top-[0%]
-              left-[-20%]
-              md:left-auto
-              md:right-[-20%]
-              w-[380px]
-              h-[380px]
-              lg:w-[1500px]
-              lg:h-[1500px]
-              rounded-full
-              z-0
-              opacity-80
-            "
-            style={{
-              background: `
-                radial-gradient(
-                  circle,
-                  rgba(255,200,80,0.08) 0%,
-                  rgba(255,170,40,0.04) 30%,
-                  transparent 72%
-                )
-              `,
-            }}
-          />
-        )}
+            <div
+              className="
+                absolute
+                inset-0
+                overflow-hidden
+                z-0
+              "
+            >
+              <img
+                src={heroImage}
+                alt="Aadithya SM"
+                className="
+                  absolute
+                  md:right-[-8%]
+                  lg:right-[-6%]
+                  top-0
+                  h-[100%]
+                  lg:h-[122%]
+                  w-auto
+                  max-w-none
+                  object-cover
+                  object-top
+                  lg:scale-[1.08]
+                  brightness-[0.82]
+                  contrast-[1.08]
+                  saturate-[1.12]
+                  opacity-100
+                "
+                style={{
+                  maskImage:
+                    "linear-gradient(to left, black 30%, transparent 100%)",
 
-        {/* DESKTOP GOLD MIST ONLY */}
-        {!isSmallScreen && (
-          <div
-            className="
-              absolute
-              inset-0
-              z-0
-              pointer-events-none
-            "
-            style={{
-              background: `
-                radial-gradient(
-                  circle at 70% 30%,
-                  rgba(255,190,40,0.03),
-                  transparent 45%
-                )
-              `,
-            }}
-          />
+                  WebkitMaskImage:
+                    "linear-gradient(to left, black 30%, transparent 100%)",
+                }}
+              />
+            </div>
+
+            {/* DESKTOP OVERLAY */}
+            <div
+              className="
+                absolute
+                inset-0
+                z-10
+                pointer-events-none
+              "
+              style={{
+                background: `
+                  linear-gradient(
+                    to right,
+                    rgba(0,0,0,1) 0%,
+                    rgba(0,0,0,0.98) 28%,
+                    rgba(0,0,0,0.92) 48%,
+                    rgba(0,0,0,0.55) 70%,
+                    rgba(0,0,0,0.12) 100%
+                  )
+                `,
+              }}
+            />
+
+            {/* DESKTOP ATMOSPHERE */}
+            <div
+              className="
+                absolute
+                top-[0%]
+                left-[-20%]
+                md:left-auto
+                md:right-[-20%]
+                w-[380px]
+                h-[380px]
+                lg:w-[1500px]
+                lg:h-[1500px]
+                rounded-full
+                z-0
+                opacity-80
+              "
+              style={{
+                background: `
+                  radial-gradient(
+                    circle,
+                    rgba(255,200,80,0.08) 0%,
+                    rgba(255,170,40,0.04) 30%,
+                    transparent 72%
+                  )
+                `,
+              }}
+            />
+
+            {/* DESKTOP GOLD MIST */}
+            <div
+              className="
+                absolute
+                inset-0
+                z-0
+                pointer-events-none
+              "
+              style={{
+                background: `
+                  radial-gradient(
+                    circle at 70% 30%,
+                    rgba(255,190,40,0.03),
+                    transparent 45%
+                  )
+                `,
+              }}
+            />
+          </>
         )}
 
         {/* VIGNETTE */}
@@ -206,51 +279,38 @@ const Hero = () => {
           "
         />
 
-        {/* BOTTOM FADE */}
-        <div
-          className="
-            absolute
-            inset-0
-            z-10
-            bg-gradient-to-b
-            from-transparent
-            via-transparent
-            to-black
-          "
-        />
+        {/* GOLD FLOATING PARTICLES */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {[...Array(isSmallScreen ? 8 : 26)].map((_, i) => (
+            <motion.div
+              key={i}
+              animate={{
+                y: [0, -18, 0],
+                opacity: [0.05, 0.25, 0.05],
+              }}
+              transition={{
+                duration: 4 + i * 0.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                width: `${1 + Math.random() * 2}px`,
+                height: `${1 + Math.random() * 2}px`,
+                background: "#f6c453",
+                boxShadow:
+                  "0 0 2px rgba(246,196,83,0.25)",
+              }}
+            />
+          ))}
+        </div>
       </motion.div>
 
-      {/* GOLD FLOATING GLITTER */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(26)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -18, 0],
-              opacity: [0.05, 0.25, 0.05],
-            }}
-            transition={{
-              duration: 4 + i * 0.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${1 + Math.random() * 2}px`,
-              height: `${1 + Math.random() * 2}px`,
-              background: "#f6c453",
-              boxShadow:
-                "0 0 2px rgba(246,196,83,0.25)",
-            }}
-          />
-        ))}
-      </div>
-
-      {/* ================================================= */}
+      {/* ====================================== */}
       {/* CONTENT */}
-      {/* ================================================= */}
+      {/* ====================================== */}
       
       <motion.div
         style={{
@@ -280,7 +340,7 @@ const Hero = () => {
               items-start
               text-left
 
-              pt-28
+              pt-32
               sm:pt-32
               lg:pt-20
             "
@@ -289,7 +349,7 @@ const Hero = () => {
             <motion.h1
               variants={heroTextReveal}
               className="
-                text-[clamp(2.5rem,7vw,5.8rem)]
+                text-[clamp(2.6rem,7vw,5.8rem)]
                 leading-[0.92]
                 tracking-tight
                 font-bold
@@ -332,7 +392,7 @@ const Hero = () => {
                 sm:text-lg
                 md:text-xl
                 leading-relaxed
-                text-white/65
+                text-white/75
               "
             >
               A premium music conservatory where
@@ -409,7 +469,7 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      {/* SCROLL INDICATOR */}
+      {/* SCROLL INDICATOR - DESKTOP ONLY */}
       {!isSmallScreen && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
