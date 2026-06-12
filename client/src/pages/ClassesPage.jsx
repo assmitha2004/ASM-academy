@@ -593,8 +593,9 @@ p-3 lg:p-5
   className="pt-10 pb-24 border-t border-gold-500/10"
 >
           <div className="container-premium">
-           <div className="max-w-3xl mb-20">
-  <span className="text-[10px] uppercase tracking-[0.32em] text-gold-400 font-mono">
+           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-20">
+              <div>
+<span className="text-xs uppercase tracking-[0.45em] text-gold-400 font-mono">
     Curriculum
   </span>
             </div>
