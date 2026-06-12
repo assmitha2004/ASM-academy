@@ -322,7 +322,7 @@ const scrollToCurriculum = () => {
 p-3 lg:p-5
                     "
                   >
-                    <item.icon className="h-4 w-4 lg:h-5 lg:w-5text-gold-400 mb-4" />
+                   <item.icon className="h-4 w-4 lg:h-5 lg:w-5 text-gold-400 mb-4" />
 
                     <p className="text-xs lg:text-sm text-white/70">
                       {item.label}
@@ -595,30 +595,48 @@ p-3 lg:p-5
   <div className="container-premium">
 
     {/* HEADER — same structure as Fee Structure */}
-    <div className="mb-20" pl-4>
-    <span className="inline-block translate-x-3 text-xs uppercase tracking-[0.45em] text-gold-400 font-mono">
-  Curriculum
-</span>
+    <div className="mb-12 px-6 sm:px-0">
 
-      <h2 className="text-5xl md:text-6xl font-display mt-5">
-        Structured Artistic Growth
-      </h2>
+  <span
+    className="
+      block
+      text-[11px]
+      uppercase
+      tracking-[0.35em]
+      text-gold-400
+      font-mono
+    "
+  >
+    Curriculum
+  </span>
 
-      <p
-        className="
-          mt-6
-          max-w-3xl
-          text-white/60
-          leading-relaxed
-          text-lg
-        "
-      >
-        Carefully designed progressive vocal training
-        focused on technique, rhythm, expression and
-        long-term artistic development for serious
-        singers.
-      </p>
-    </div>
+  <h2
+    className="
+      mt-4
+      text-3xl
+      sm:text-4xl
+      md:text-6xl
+      font-display
+      leading-tight
+    "
+  >
+    Structured Artistic Growth
+  </h2>
+
+  <p
+    className="
+      mt-4
+      text-sm
+      sm:text-base
+      text-white/60
+      leading-relaxed
+      max-w-xl
+    "
+  >
+    Carefully designed progressive vocal training focused on long-term artistic development.
+  </p>
+
+</div>
 
     {/* CARDS */}
     <div className="grid md:grid-cols-2 gap-8">
