@@ -67,8 +67,8 @@ const DESTINATIONS = [
 ];
 
 const PROJECTION = geoEqualEarth()
-  .scale(255)
-  .translate([650, 320]);
+  .scale(300)
+  .translate([800, 400]);
 
 function project(coords) {
   const p = PROJECTION(coords);
@@ -100,7 +100,6 @@ export default function GalleryHero() {
         y: 80,
         opacity: 0,
         duration: 1.2,
-        stagger: 0.15,
         ease: "power4.out",
       });
 
@@ -111,12 +110,6 @@ export default function GalleryHero() {
         delay: 0.5,
       });
 
-      gsap.from(".hero-buttons", {
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        delay: 0.8,
-      });
 
       gsap.to(".route-path", {
         strokeDashoffset: 0,
@@ -206,12 +199,9 @@ export default function GalleryHero() {
             ASMVOCAL ACADEMY — EST. SINCE 2024
           </div>
 
-          <h1 className="hero-title" style={styles.title}>
-            <span>
-              From <span style={styles.gold}>India</span>
-            </span>
-            <span>To The World</span>
-          </h1>
+         <h1 className="hero-title" style={styles.title}>
+  From <span style={styles.gold}>India</span> To The World
+</h1>
 
           <p className="hero-sub" style={styles.subtitle}>
             A cinematic journey of global expansion connecting
@@ -225,10 +215,10 @@ export default function GalleryHero() {
           <ComposableMap
             projection="geoEqualEarth"
             projectionConfig={{
-              scale: 255,
+              scale: 300,
             }}
-            width={1300}
-            height={650}
+            width={1600}
+            height={800}
             style={{
               width: "100%",
               height: "100%",
@@ -380,95 +370,6 @@ export default function GalleryHero() {
           </ComposableMap>
         </div>
       </div>
-      {/* WATCH MORE */}
-<div
-  style={{
-    position: "absolute",
-    bottom: "20px",
-    left: "50%",
-    transform: "translateX(-50%)",
-    zIndex: 20,
-  }}
->
-  <div
-    onClick={() => {
-      window.scrollTo({
-        top: window.innerHeight,
-        behavior: "smooth",
-      });
-    }}
-
-    onMouseEnter={(e) => {
-      e.currentTarget.style.opacity = "1";
-      e.currentTarget.style.transform =
-        "translateY(-6px)";
-      e.currentTarget.style.filter =
-        "drop-shadow(0 0 22px rgba(246,196,83,0.55))";
-    }}
-
-    onMouseLeave={(e) => {
-      e.currentTarget.style.opacity = "0.7";
-      e.currentTarget.style.transform =
-        "translateY(0px)";
-      e.currentTarget.style.filter =
-        "drop-shadow(0 0 0px rgba(246,196,83,0))";
-    }}
-
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      gap: "12px",
-      cursor: "pointer",
-      opacity: 0.7,
-      transition: "all 0.45s ease",
-      filter:
-        "drop-shadow(0 0 0px rgba(246,196,83,0))",
-    }}
-  >
-    <span
-      style={{
-        fontSize: "10px",
-        letterSpacing: "6px",
-        textTransform: "uppercase",
-        color: "#d1d5db",
-        textShadow:"0 0 12px rgba(246,196,83,0.35)",
-        fontFamily: "monospace",
-      }}
-    >
-      Watch More
-    </span>
-
-    <div
-      style={{
-        width: "26px",
-        height: "46px",
-        borderRadius: "999px",
-        border: "1px solid rgba(255,255,255,0.14)",
-        display: "flex",
-        justifyContent: "center",
-        paddingTop: "8px",
-      }}
-    >
-      <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{
-          duration: 1.6,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        style={{
-          width: "8px",
-          height: "8px",
-          borderRadius: "999px",
-          background: "#f6c453",
-          boxShadow:
-            "0 0 12px rgba(246,196,83,0.9)",
-        }}
-      />
-    </div>
-  </div>
-</div>
     </section>
     
   );
@@ -477,7 +378,10 @@ export default function GalleryHero() {
 const styles = {
   root: {
     position: "relative",
-    minHeight: "68vh",
+    minHeight:
+  window.innerWidth < 768
+    ? "88vh"
+    : "68vh",
     overflow: "hidden",
    background: `
   linear-gradient(
@@ -513,30 +417,67 @@ const styles = {
     boxShadow: "0 0 8px rgba(246,196,83,0.8)",
   },
 
-  container: {
-    position: "relative",
-    zIndex: 2,
-    width: "100%",
-    display: "grid",
-    gridTemplateColumns: "1fr 1.4fr",
-    alignItems: "start",
-    gap: "40px",
-   padding: "120px 70px 80px", 
-  },
+ container: {
+  position: "relative",
+  zIndex: 2,
+  width: "100%",
+
+  display: "grid",
+
+  gridTemplateColumns:
+    window.innerWidth < 768
+      ? "1fr"
+      : "1fr 1.4fr",
+
+  alignItems: "center",
+
+  gap:
+    window.innerWidth < 768
+      ? "20px"
+      : "40px",
+
+  padding:
+    window.innerWidth < 768
+      ? "90px 22px 60px"
+      : "120px 70px 80px",
+},
 
   left: {
-    maxWidth: "520px",
-  },
+  maxWidth:
+    window.innerWidth < 768
+      ? "100%"
+      : "900px",
 
+  width: "100%",
+
+  textAlign: "center",
+},
   eyebrow: {
-    display: "flex",
-    alignItems: "center",
-    gap: "10px",
-    color: "#f6c453",
-    letterSpacing: "4px",
-    fontSize: "12px",
-    marginBottom: "28px",
-  },
+  display: "flex",
+
+  justifyContent:
+    window.innerWidth < 768
+      ? "center"
+      : "flex-start",
+
+  alignItems: "center",
+
+  gap: "10px",
+
+  color: "#f6c453",
+
+  letterSpacing:
+    window.innerWidth < 768
+      ? "2px"
+      : "4px",
+
+  fontSize:
+    window.innerWidth < 768
+      ? "10px"
+      : "12px",
+
+  marginBottom: "24px",
+},
 
   dot: {
     width: "6px",
@@ -547,15 +488,24 @@ const styles = {
   },
 
 title: {
-  display: "flex",
-  flexDirection: "column",
+  display: "block",
 
-  fontSize: "clamp(40px, 5vw, 74px)",
+  fontSize:
+    window.innerWidth < 768
+      ? "34px"
+      : "78px",
 
-  lineHeight: 0.92,
+  lineHeight: 1.05,
+
   fontWeight: "700",
+
   letterSpacing: "-2px",
+
   margin: 0,
+
+  textAlign: "center",
+
+  whiteSpace: "nowrap",
 },
 
   gold: {
@@ -564,13 +514,36 @@ title: {
     textShadow: "0 0 25px rgba(246,196,83,0.35)",
   },
 
-  subtitle: {
-    marginTop: "32px",
-    color: "rgba(255,255,255,0.65)",
-    fontSize: "18px",
-    lineHeight: 1.8,
-    maxWidth: "500px",
-  },
+ subtitle: {
+  marginTop:
+    window.innerWidth < 768
+      ? "12px"
+      : "32px",
+
+  color: "rgba(255,255,255,0.65)",
+
+  fontSize:
+    window.innerWidth < 768
+      ? "14px"
+      : "18px",
+
+  lineHeight: 1.9,
+
+  maxWidth:
+    window.innerWidth < 768
+      ? "100%"
+      : "500px",
+
+  textAlign:
+    window.innerWidth < 768
+      ? "center"
+      : "left",
+
+  padding:
+    window.innerWidth < 768
+      ? "0 8px"
+      : "0",
+},
 
   buttons: {
     display: "flex",
@@ -606,12 +579,29 @@ title: {
   },
 
 mapWrap: {
-  width: "115%",
-  marginLeft: "-5%",
-  height: "420px",
+  width:
+    window.innerWidth < 768
+      ? "115%"
+      : "140%",
+
+  marginLeft:
+    window.innerWidth < 768
+      ? "-7%"
+      : "-18%",
+
+  height:
+    window.innerWidth < 768
+      ? "320px"
+      : "560px",
+
   overflow: "hidden",
-  transform: "translateY(-40px)",
+
+  transform:
+    window.innerWidth < 768
+      ? "translateY(-10px)"
+      : "translateY(-50px)",
+
   filter:
-    "drop-shadow(0 0 80px rgba(0,0,0,0.5))",
+    "drop-shadow(0 0 100px rgba(0,0,0,0.5))",
 },
 };
