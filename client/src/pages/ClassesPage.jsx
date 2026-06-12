@@ -588,77 +588,65 @@ p-3 lg:p-5
         {/* CURRICULUM */}
         {/* ================================================= */}
 
-        <section
+       <section
   ref={curriculumRef}
   className="pt-10 pb-24 border-t border-gold-500/10"
 >
-          <div className="container-premium">
-           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-20">
-             <div>
-  <span
-    className="
-      text-xs
-      uppercase
-      tracking-[0.45em]
-      text-gold-400
-      font-mono
-    "
-  >
-    Curriculum
-  </span>
+  <div className="container-premium">
 
-  <h2
-    className="
-      text-5xl
-      md:text-6xl
-      font-display
-      mt-5
-    "
-  >
-    Structured Artistic Growth
-  </h2>
+    {/* HEADER — same structure as Fee Structure */}
+    <div className="mb-20">
+      <span className="text-xs uppercase tracking-[0.45em] text-gold-400 font-mono">
+        Curriculum
+      </span>
 
-  <p
-    className="
-      mt-6
-      max-w-3xl
-      text-white/60
-      leading-relaxed
-      text-lg
-    "
-  >
-    Carefully designed progressive vocal training
-    focused on technique, rhythm, expression and
-    long-term artistic development for serious
-    singers.
-  </p>
-</div>
+      <h2 className="text-5xl md:text-6xl font-display mt-5">
+        Structured Artistic Growth
+      </h2>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {curriculum.map((item, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ y: -5 }}
-                  className="
-                    border
-                    border-gold-500/10
-                    rounded-[32px]
-                    p-10
-                    bg-white/[0.03]
-                  "
-                >
-                  <h3 className="text-3xl font-display mb-5 text-gold-400">
-                    {item.title}
-                  </h3>
+      <p
+        className="
+          mt-6
+          max-w-3xl
+          text-white/60
+          leading-relaxed
+          text-lg
+        "
+      >
+        Carefully designed progressive vocal training
+        focused on technique, rhythm, expression and
+        long-term artistic development for serious
+        singers.
+      </p>
+    </div>
 
-                  <p className="text-white/65 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+    {/* CARDS */}
+    <div className="grid md:grid-cols-2 gap-8">
+      {curriculum.map((item, i) => (
+        <motion.div
+          key={i}
+          whileHover={{ y: -5 }}
+          className="
+            border
+            border-gold-500/10
+            rounded-[32px]
+            p-10
+            bg-white/[0.03]
+          "
+        >
+          <h3 className="text-3xl font-display mb-5 text-gold-400">
+            {item.title}
+          </h3>
+
+          <p className="text-white/65 leading-relaxed">
+            {item.desc}
+          </p>
+        </motion.div>
+      ))}
+    </div>
+
+  </div>
+</section>
 
         {/* ================================================= */}
         {/* POLICIES */}
