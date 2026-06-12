@@ -280,20 +280,17 @@ const Hero = () => {
               items-start
               text-left
 
-              pt-36
-sm:pt-36
-lg:pt-20
+              pt-28
+              sm:pt-32
+              lg:pt-20
             "
           >
             {/* TITLE */}
             <motion.h1
               variants={heroTextReveal}
               className="
-                text-[2.95rem]
-sm:text-[3.3rem]
-lg:text-[clamp(2.5rem,7vw,5.8rem)]
-
-leading-[0.88]
+                text-[clamp(2.5rem,7vw,5.8rem)]
+                leading-[0.92]
                 tracking-tight
                 font-bold
                 text-white
@@ -313,7 +310,7 @@ leading-[0.88]
               className="
                 flex items-center gap-3
                 text-white/40
-                mt-7 sm:mt-8
+                mt-6 sm:mt-8
               "
             >
               <span className="h-px w-8 sm:w-12 bg-yellow-500/40" />
@@ -329,19 +326,14 @@ leading-[0.88]
             <motion.p
               variants={fadeUp}
               className="
-  mt-7
-
-  max-w-[290px]
-  sm:max-w-md
-
-  text-[15px]
-  sm:text-lg
-  md:text-xl
-
-  leading-8
-
-  text-white/68
-"
+                mt-5 sm:mt-6
+                max-w-md
+                text-sm
+                sm:text-lg
+                md:text-xl
+                leading-relaxed
+                text-white/65
+              "
             >
               A premium music conservatory where
               world-class artists mentor the next
@@ -359,7 +351,7 @@ leading-[0.88]
                 items-start
                 sm:items-center
                 gap-5
-                mt-10 sm:mt-12
+                mt-8 sm:mt-12
               "
             >
               <Link to="/classes">
@@ -368,7 +360,7 @@ leading-[0.88]
                 </Button>
               </Link>
 
-              <div className="flex items-center gap-6 mt-1">
+              <div className="flex flex-wrap items-center gap-5 sm:gap-7">
 
                 {/* INSTAGRAM */}
                 <a
@@ -379,7 +371,7 @@ leading-[0.88]
                 >
                   <Instagram className="h-4 w-4 text-yellow-400/70 transition-all duration-300 group-hover:text-yellow-300 group-hover:scale-110" />
 
-                  <span className="text-[13px] sm:text-sm tracking-wide text-white/55 transition-colors duration-300 group-hover:text-white">
+                  <span className="text-sm tracking-wide text-white/55 transition-colors duration-300 group-hover:text-white">
                     Instagram
                   </span>
                 </a>
@@ -436,12 +428,12 @@ leading-[0.88]
             hidden sm:flex
             flex-col
             items-center
-            gap-4
+            gap-3
           "
         >
           <span
             className="
-              text-[9px]
+              text-[10px]
               uppercase
               tracking-[0.42em]
               text-white/35
