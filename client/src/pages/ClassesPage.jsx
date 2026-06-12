@@ -594,11 +594,40 @@ p-3 lg:p-5
 >
           <div className="container-premium">
            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-20">
-              <div>
-<span className="text-xs uppercase tracking-[0.45em] text-gold-400 font-mono">
+              <div className="max-w-3xl mb-16 pl-4 sm:pl-0">
+  <span
+    className="
+      inline-block
+      translate-x-3
+
+      text-[12px]
+      sm:text-xs
+
+      uppercase
+      tracking-[0.38em]
+
+      text-gold-400
+      font-mono
+    "
+  >
     Curriculum
   </span>
-            </div>
+
+  <h2
+    className="
+      text-4xl
+      sm:text-5xl
+      md:text-6xl
+
+      font-display
+      mt-4
+
+      translate-x-3
+    "
+  >
+    Structured Artistic Growth
+  </h2>
+</div>
 
             <div className="grid md:grid-cols-2 gap-8">
               {curriculum.map((item, i) => (
