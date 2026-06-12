@@ -595,10 +595,10 @@ p-3 lg:p-5
   <div className="container-premium">
 
     {/* HEADER — same structure as Fee Structure */}
-    <div className="mb-20">
-      <span className="text-xs uppercase tracking-[0.45em] text-gold-400 font-mono">
-        Curriculum
-      </span>
+    <div className="mb-20" pl-4>
+    <span className="inline-block translate-x-3 text-xs uppercase tracking-[0.45em] text-gold-400 font-mono">
+  Curriculum
+</span>
 
       <h2 className="text-5xl md:text-6xl font-display mt-5">
         Structured Artistic Growth
