@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import { geoEqualEarth } from "d3-geo";
 import { gsap } from "gsap";
+const isMobileGlobal = window.innerWidth < 768;
 const GEO_URL =
   "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
@@ -66,9 +66,14 @@ const DESTINATIONS = [
   },
 ];
 
+
 const PROJECTION = geoEqualEarth()
-  .scale(300)
-  .translate([800, 400]);
+  .scale(isMobileGlobal ? 210 : 300)
+  .translate(
+    isMobileGlobal
+      ? [800, 340]
+      : [800, 400]
+  );
 
 function project(coords) {
   const p = PROJECTION(coords);
@@ -90,6 +95,7 @@ function createCurve(from, to, curveHeight = 60) {
 }
 
 export default function GalleryHero() {
+   const isMobile = window.innerWidth < 768;
   const rootRef = useRef(null);
   const mapRef = useRef(null);
   const particlesRef = useRef(null);
@@ -159,11 +165,15 @@ export default function GalleryHero() {
         });
       };
 
-      window.addEventListener("mousemove", move);
+  if (!isMobile) {
+  window.addEventListener("mousemove", move);
+}
 
-      return () => {
-        window.removeEventListener("mousemove", move);
-      };
+return () => {
+  if (!isMobile) {
+    window.removeEventListener("mousemove", move);
+  }
+};
     }, rootRef);
 
     return () => ctx.revert();
@@ -209,10 +219,10 @@ export default function GalleryHero() {
           <ComposableMap
             projection="geoEqualEarth"
             projectionConfig={{
-  scale: window.innerWidth < 768 ? 210 : 300,
+  scale: isMobile ? 210 : 300,
 
   translate:
-    window.innerWidth < 768
+    isMobile
       ? [800, 340]
       : [800, 400],
 }}
@@ -378,7 +388,7 @@ const styles = {
   root: {
     position: "relative",
     minHeight:
-  window.innerWidth < 768
+  isMobile
     ? "65vh"
     : "68vh",
     overflow: "hidden",
@@ -424,37 +434,37 @@ const styles = {
   display: "grid",
 
   gridTemplateColumns:
-    window.innerWidth < 768
+    isMobile
       ? "1fr"
       : "1.15fr 1fr",
 
   alignItems: "center",
 
   gap:
-    window.innerWidth < 768
+    isMobile
       ? "30px"
       : "20px",
 
  padding:
-window.innerWidth < 768
+isMobile
 ? "45px 18px 20px"
 : "130px 90px 80px"
 },
 
  left: {
   maxWidth:
-    window.innerWidth < 768
+    isMobile
       ? "100%"
       : "560px",
 
   width: "100%",
 
   textAlign:
-    window.innerWidth < 768
+    isMobile
       ? "center"
       : "left",
       transform:
-    window.innerWidth < 768
+    isMobile
       ? "translateY(0px)"
       : "translateY(-100px)",
 },
@@ -462,7 +472,7 @@ window.innerWidth < 768
   display: "flex",
 
   justifyContent:
-    window.innerWidth < 768
+   isMobile
       ? "center"
       : "flex-start",
 
@@ -473,12 +483,12 @@ window.innerWidth < 768
   color: "#f6c453",
 
   letterSpacing:
-    window.innerWidth < 768
+    isMobile
       ? "2px"
       : "4px",
 
   fontSize:
-    window.innerWidth < 768
+    isMobile
       ? "10px"
       : "12px",
 
@@ -497,11 +507,14 @@ title: {
   display: "block",
 
   fontSize:
-    window.innerWidth < 768
+    isMobile
       ? "32px"
       : "82px",
 
-  lineHeight: 0.95,
+ lineHeight:
+  isMobile
+    ? 1.05
+    : 0.95,
 
   fontWeight: "700",
 
@@ -510,7 +523,7 @@ title: {
   margin: 0,
 
   textAlign:
-    window.innerWidth < 768
+    isMobile
       ? "center"
       : "left",
 
@@ -525,31 +538,31 @@ title: {
 
 subtitle: {
   marginTop:
-    window.innerWidth < 768
+    isMobile
       ? "18px"
       : "34px",
 
   color: "rgba(255,255,255,0.65)",
 
   fontSize:
-    window.innerWidth < 768
+    isMobile
       ? "14px"
       : "18px",
 
   lineHeight: 1.9,
 
   maxWidth:
-    window.innerWidth < 768
+   isMobile
       ? "320px"
       : "520px",
 
   textAlign:
-    window.innerWidth < 768
+    isMobile
       ? "center"
       : "left",
 
   padding:
-    window.innerWidth < 768
+    isMobile
       ? "0"
       : "0",
 },
@@ -587,32 +600,27 @@ subtitle: {
     backdropFilter: "blur(10px)",
   },
 
-mapWrap: {
-  width:
-    window.innerWidth < 768
-      ? "115%"
-      : "155%",
 
  mapWrap: {
   width:
-    window.innerWidth < 768
+    isMobile
       ? "100%"
       : "155%",
 
   marginLeft:
-    window.innerWidth < 768
+    isMobile
       ? "0%"
       : "-22%",
 
   height:
-    window.innerWidth < 768
+    isMobile
       ? "260px"
       : "700px",
 
   overflow: "hidden",
 
   marginTop:
-    window.innerWidth < 768
+    isMobile
       ? "-20px"
       : "-60px",
 
