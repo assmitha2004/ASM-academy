@@ -132,36 +132,34 @@ const scrollToCurriculum = () => {
         <section className="relative min-h-screen overflow-hidden">
           {{/* IMAGE — DESKTOP ONLY */}
 <div className="absolute inset-0 hidden lg:block">
-  <img
-    src={heroImage}
-    alt="Aadithya SM"
-    className="
-      absolute
-      right-[-6%]
-      top-[-2%]
+ <img
+                src={heroImage}
+                alt="Aadithya SM"
+                className="
+                  absolute
+                  md:right-[-8%]
+                  lg:right-[-6%]
+                  top-0
+                  h-[100%]
+                  lg:h-[122%]
+                  w-auto
+                  max-w-none
+                  object-cover
+                  object-top
+                  lg:scale-[1.08]
+                  brightness-[0.82]
+                  contrast-[1.08]
+                  saturate-[1.12]
+                  opacity-100
+                "
+                style={{
+                  maskImage:
+                    "linear-gradient(to left, black 30%, transparent 100%)",
 
-      h-[122%]
-      w-auto
-      max-w-none
-
-      object-cover
-      object-top
-
-      scale-[1.08]
-
-      brightness-[0.78]
-      contrast-[1.1]
-      saturate-[1.15]
-
-      opacity-100
-    "
-    style={{
-      maskImage:
-        "linear-gradient(to left, black 72%, transparent 100%)",
-      WebkitMaskImage:
-        "linear-gradient(to left, black 72%, transparent 100%)",
-    }}
-  />
+                  WebkitMaskImage:
+                    "linear-gradient(to left, black 30%, transparent 100%)",
+                }}
+              />
 </div>
 
           {/* BLACK + GOLD MERGE */}
@@ -445,7 +443,7 @@ p-3 lg:p-5
                   {countries.map((country) => (
                     <option
                       key={country._id}
-                      value={country.name}
+                      value={country.name.toUpperCase()}
                       className="bg-black text-white"
                     >
                       {country.name}
