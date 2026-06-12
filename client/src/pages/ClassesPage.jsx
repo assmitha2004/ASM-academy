@@ -609,6 +609,33 @@ p-3 lg:p-5
   >
     Curriculum
   </span>
+
+  <h2
+    className="
+      mt-4
+      text-3xl
+      sm:text-4xl
+      md:text-6xl
+      font-display
+      leading-tight
+    "
+  >
+    Structured Artistic Growth
+  </h2>
+
+  <p
+    className="
+      mt-4
+      text-sm
+      sm:text-base
+      text-white/60
+      leading-relaxed
+      max-w-xl
+    "
+  >
+    Carefully designed progressive vocal training focused on long-term artistic development.
+  </p>
+
 </div>
 
     {/* CARDS */}
