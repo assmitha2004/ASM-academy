@@ -101,14 +101,16 @@ const InquiryModal = ({
               </label>
 
               <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                placeholder="Enter Full Name"
-                className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-white"
-              />
+  type="text"
+  name="name"
+  value={formData.name}
+  onChange={handleChange}
+  required
+  pattern="^[A-Za-z\s]{3,50}$"
+  title="Enter a valid name (letters only)"
+  placeholder="Enter Full Name"
+  className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-white"
+/>
             </div>
 
             {/* LEVEL */}
@@ -203,15 +205,17 @@ const InquiryModal = ({
                 WhatsApp Number
               </label>
 
-              <input
-                type="text"
-                name="whatsapp"
-                value={formData.whatsapp}
-                onChange={handleChange}
-                required
-                placeholder="Enter WhatsApp Number"
-                className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-white"
-              />
+             <input
+  type="tel"
+  name="whatsapp"
+  value={formData.whatsapp}
+  onChange={handleChange}
+  required
+  pattern="^\+[1-9]{1}[0-9]{7,14}$"
+  title="Enter valid WhatsApp number with country code (Example: +919876543210)"
+  placeholder="+919876543210"
+  className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-white"
+/>
             </div>
 
             {/* EMAIL */}
@@ -222,14 +226,16 @@ const InquiryModal = ({
               </label>
 
               <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                placeholder="Enter Email Address"
-                className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-white"
-              />
+  type="email"
+  name="email"
+  value={formData.email}
+  onChange={handleChange}
+  required
+  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+  title="Enter a valid email address"
+  placeholder="Enter Email Address"
+  className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-white"
+/>
             </div>
 
             {/* BUTTONS */}
