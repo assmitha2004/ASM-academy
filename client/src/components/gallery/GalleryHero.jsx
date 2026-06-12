@@ -209,9 +209,13 @@ export default function GalleryHero() {
           <ComposableMap
             projection="geoEqualEarth"
             projectionConfig={{
-              scale: 300,
-              translate:[800,400],
-            }}
+  scale: window.innerWidth < 768 ? 210 : 300,
+
+  translate:
+    window.innerWidth < 768
+      ? [800, 340]
+      : [800, 400],
+}}
             width={1600}
             height={800}
             style={{
@@ -375,7 +379,7 @@ const styles = {
     position: "relative",
     minHeight:
   window.innerWidth < 768
-    ? "88vh"
+    ? "65vh"
     : "68vh",
     overflow: "hidden",
    background: `
@@ -431,10 +435,10 @@ const styles = {
       ? "30px"
       : "20px",
 
-  padding:
-    window.innerWidth < 768
-      ? "90px 22px 60px"
-      : "130px 90px 80px",
+ padding:
+window.innerWidth < 768
+? "45px 18px 20px"
+: "130px 90px 80px"
 },
 
  left: {
@@ -449,7 +453,10 @@ const styles = {
     window.innerWidth < 768
       ? "center"
       : "left",
-      transform: "translateY(-100px)",
+      transform:
+    window.innerWidth < 768
+      ? "translateY(0px)"
+      : "translateY(-100px)",
 },
   eyebrow: {
   display: "flex",
@@ -491,7 +498,7 @@ title: {
 
   fontSize:
     window.innerWidth < 768
-      ? "38px"
+      ? "32px"
       : "82px",
 
   lineHeight: 0.95,
@@ -586,22 +593,28 @@ mapWrap: {
       ? "115%"
       : "155%",
 
+ mapWrap: {
+  width:
+    window.innerWidth < 768
+      ? "100%"
+      : "155%",
+
   marginLeft:
     window.innerWidth < 768
-      ? "-8%"
+      ? "0%"
       : "-22%",
 
   height:
     window.innerWidth < 768
-      ? "360px"
+      ? "260px"
       : "700px",
 
   overflow: "hidden",
-marginTop:
+
+  marginTop:
     window.innerWidth < 768
-      ? "-5px"
+      ? "-20px"
       : "-60px",
- 
 
   filter:
     "drop-shadow(0 0 100px rgba(0,0,0,0.5))",
