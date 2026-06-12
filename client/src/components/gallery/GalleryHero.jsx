@@ -445,9 +445,9 @@ const styles = {
       ? "30px"
       : "20px",
 
- padding:
+padding:
 isMobile
-? "45px 18px 20px"
+? "85px 18px 20px"
 : "130px 90px 80px"
 },
 
@@ -465,7 +465,7 @@ isMobile
       : "left",
       transform:
     isMobile
-      ? "translateY(0px)"
+      ? "translateY(35px)"
       : "translateY(-100px)",
 },
   eyebrow: {
