@@ -199,15 +199,9 @@ export default function GalleryHero() {
             ASMVOCAL ACADEMY — EST. SINCE 2024
           </div>
 
-         <h1 className="hero-title" style={styles.title}>
+       <h1 className="hero-title" style={styles.title}>
   From <span style={styles.gold}>India</span> To The World
 </h1>
-
-          <p className="hero-sub" style={styles.subtitle}>
-            A cinematic journey of global expansion connecting
-            aspiring vocal artists across continents through
-            creativity, innovation, and music.
-          </p>
         </div>
 
         {/* RIGHT */}
@@ -427,30 +421,33 @@ const styles = {
   gridTemplateColumns:
     window.innerWidth < 768
       ? "1fr"
-      : "1fr 1.4fr",
+      : "1.15fr 1fr",
 
   alignItems: "center",
 
   gap:
     window.innerWidth < 768
-      ? "20px"
-      : "40px",
+      ? "30px"
+      : "20px",
 
   padding:
     window.innerWidth < 768
       ? "90px 22px 60px"
-      : "120px 70px 80px",
+      : "130px 90px 80px",
 },
 
-  left: {
+ left: {
   maxWidth:
     window.innerWidth < 768
       ? "100%"
-      : "900px",
+      : "560px",
 
   width: "100%",
 
-  textAlign: "center",
+  textAlign:
+    window.innerWidth < 768
+      ? "center"
+      : "left",
 },
   eyebrow: {
   display: "flex",
@@ -492,10 +489,10 @@ title: {
 
   fontSize:
     window.innerWidth < 768
-      ? "34px"
-      : "78px",
+      ? "38px"
+      : "82px",
 
-  lineHeight: 1.05,
+  lineHeight: 0.95,
 
   fontWeight: "700",
 
@@ -503,9 +500,12 @@ title: {
 
   margin: 0,
 
-  textAlign: "center",
+  textAlign:
+    window.innerWidth < 768
+      ? "center"
+      : "left",
 
-  whiteSpace: "nowrap",
+  whiteSpace: "normal",
 },
 
   gold: {
@@ -514,11 +514,11 @@ title: {
     textShadow: "0 0 25px rgba(246,196,83,0.35)",
   },
 
- subtitle: {
+subtitle: {
   marginTop:
     window.innerWidth < 768
-      ? "12px"
-      : "32px",
+      ? "18px"
+      : "34px",
 
   color: "rgba(255,255,255,0.65)",
 
@@ -531,8 +531,8 @@ title: {
 
   maxWidth:
     window.innerWidth < 768
-      ? "100%"
-      : "500px",
+      ? "320px"
+      : "520px",
 
   textAlign:
     window.innerWidth < 768
@@ -541,7 +541,7 @@ title: {
 
   padding:
     window.innerWidth < 768
-      ? "0 8px"
+      ? "0"
       : "0",
 },
 
@@ -582,24 +582,24 @@ mapWrap: {
   width:
     window.innerWidth < 768
       ? "115%"
-      : "140%",
+      : "155%",
 
   marginLeft:
     window.innerWidth < 768
-      ? "-7%"
-      : "-18%",
+      ? "-8%"
+      : "-22%",
 
   height:
     window.innerWidth < 768
-      ? "320px"
-      : "560px",
+      ? "360px"
+      : "700px",
 
   overflow: "hidden",
 
   transform:
     window.innerWidth < 768
-      ? "translateY(-10px)"
-      : "translateY(-50px)",
+      ? "translateY(0px)"
+      : "translateY(-25px)",
 
   filter:
     "drop-shadow(0 0 100px rgba(0,0,0,0.5))",
