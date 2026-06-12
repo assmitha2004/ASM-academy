@@ -213,7 +213,15 @@ const scrollToCurriculum = () => {
 
           {/* CONTENT */}
           <div className="relative z-20 container-premium min-h-screen flex items-center pt-32">
-            <div className="max-w-3xl">
+            <div
+  className="
+    max-w-3xl
+    text-center
+    lg:text-left
+    mx-auto
+    lg:mx-0
+  "
+>
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -233,12 +241,15 @@ const scrollToCurriculum = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
                 className="
-                  text-6xl
-                  md:text-8xl
-                  font-display
-                  leading-[0.92]
-                  mt-6
-                "
+  text-4xl
+  sm:text-5xl
+  md:text-6xl
+  lg:text-8xl
+  font-display
+  leading-[0.94]
+  mt-5
+  lg:mt-6
+"
               >
                 Master The
                 <br />
@@ -253,13 +264,23 @@ const scrollToCurriculum = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
                 className="
-                  mt-10
-                  max-w-2xl
-                  text-lg
-                  md:text-xl
-                  text-white/70
-                  leading-relaxed
-                "
+  mt-6
+  lg:mt-10
+
+  max-w-[320px]
+  sm:max-w-[420px]
+  lg:max-w-2xl
+
+  mx-auto
+  lg:mx-0
+
+  text-sm
+  sm:text-base
+  lg:text-xl
+
+  text-white/65
+  leading-7
+"
               >
                 Personalized online vocal mentorship designed to
                 strengthen technique, musicality, confidence and
@@ -268,7 +289,7 @@ const scrollToCurriculum = () => {
               </motion.p>
 
               {/* QUICK INFO */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-14">
+             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5 mt-8 lg:mt-14">
                 {[
                   {
                     icon: Clock3,
@@ -297,21 +318,29 @@ const scrollToCurriculum = () => {
                       border-gold-500/10
                       bg-white/[0.03]
                       backdrop-blur-xl
-                      rounded-3xl
-                      p-5
+                      rounded-2xl lg:rounded-3xl
+p-3 lg:p-5
                     "
                   >
-                    <item.icon className="h-5 w-5 text-gold-400 mb-4" />
+                    <item.icon className="h-4 w-4 lg:h-5 lg:w-5text-gold-400 mb-4" />
 
-                    <p className="text-sm text-white/70">
+                    <p className="text-xs lg:text-sm text-white/70">
                       {item.label}
                     </p>
                   </div>
                 ))}
               </div>
 
-             <div className="flex flex-wrap gap-4 mt-12">
-  {/* PRIMARY CTA */}
+            <div
+  className="
+    mt-8
+    lg:mt-12
+    flex
+    flex-col
+    items-center
+    lg:items-start
+  "
+>
   <Button
     size="lg"
     className="min-w-[220px]"
@@ -320,25 +349,17 @@ const scrollToCurriculum = () => {
     Check Availability
   </Button>
 
-  {/* PLANS */}
-  <Button
-    variant="ghost"
-    size="lg"
-    className="min-w-[220px]"
-    onClick={scrollToPlans}
+  <div
+    className="
+      mt-5
+      flex
+      items-center
+      gap-4
+      text-sm
+      text-white/55
+    "
   >
-    Explore Plans
-  </Button>
-
-  {/* CURRICULUM */}
-  <Button
-    variant="ghost"
-    size="lg"
-    className="min-w-[220px]"
-    onClick={scrollToCurriculum}
-  >
-    Curriculum & policies
-  </Button>
+  </div>
 </div>
             </div>
           </div>
