@@ -594,18 +594,12 @@ p-3 lg:p-5
 >
           <div className="container-premium">
            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-20">
-              <div className="max-w-3xl mb-16 pl-4 sm:pl-0">
+             <div>
   <span
     className="
-      inline-block
-      translate-x-3
-
-      text-[12px]
-      sm:text-xs
-
+      text-xs
       uppercase
-      tracking-[0.38em]
-
+      tracking-[0.45em]
       text-gold-400
       font-mono
     "
@@ -615,18 +609,29 @@ p-3 lg:p-5
 
   <h2
     className="
-      text-4xl
-      sm:text-5xl
+      text-5xl
       md:text-6xl
-
       font-display
-      mt-4
-
-      translate-x-3
+      mt-5
     "
   >
     Structured Artistic Growth
   </h2>
+
+  <p
+    className="
+      mt-6
+      max-w-3xl
+      text-white/60
+      leading-relaxed
+      text-lg
+    "
+  >
+    Carefully designed progressive vocal training
+    focused on technique, rhythm, expression and
+    long-term artistic development for serious
+    singers.
+  </p>
 </div>
 
             <div className="grid md:grid-cols-2 gap-8">
