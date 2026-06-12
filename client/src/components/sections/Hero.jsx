@@ -89,8 +89,8 @@ to-black
             className="
               absolute
 
-              left-[-35%]
-              sm:left-[-25%]
+              left-[42%]
+              sm:left-[30%]
 
               md:left-auto
               md:right-[-8%]
@@ -120,20 +120,20 @@ to-black
               contrast-[1.08]
               saturate-[1.12]
 
-              opacity-55 md:opacity-100
+              opacity-12 md:opacity-100
             "
             style={{
-              maskImage:
-                typeof window !== "undefined" &&
-                window.innerWidth < 768
-                  ? "linear-gradient(to left, black 88%, transparent 100%)"
-                  : "linear-gradient(to left, black 68%, transparent 100%)",
+             maskImage:
+  typeof window !== "undefined" &&
+  window.innerWidth < 768
+    ? "linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0.7) 65%, transparent 100%)"
+    : "linear-gradient(to left, rgba(0,0,0,1) 20%, rgba(0,0,0,0.65) 55%, transparent 100%)",
 
-              WebkitMaskImage:
-                typeof window !== "undefined" &&
-                window.innerWidth < 768
-                  ? "linear-gradient(to left, black 88%, transparent 100%)"
-                  : "linear-gradient(to left, black 68%, transparent 100%)",
+WebkitMaskImage:
+  typeof window !== "undefined" &&
+  window.innerWidth < 768
+    ? "linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0.7) 65%, transparent 100%)"
+    : "linear-gradient(to left, rgba(0,0,0,1) 20%, rgba(0,0,0,0.65) 55%, transparent 100%)",
             }}
           />
         </div>
@@ -176,8 +176,8 @@ to-black
             md:left-auto
             md:right-[-20%]
 
-            w-[700px]
-            h-[700px]
+            w-[380px]
+            h-[380px]
 
             lg:w-[1500px]
             lg:h-[1500px]
@@ -245,7 +245,7 @@ to-black
       </motion.div>
       {/* GOLD FLOATING PARTICLES */}
 <div className="absolute inset-0 z-5 pointer-events-none overflow-hidden">
-  {[...Array(18)].map((_, i) => (
+  {[...Array(8)].map((_, i) => (
     <motion.div
       key={i}
       animate={{
@@ -264,7 +264,7 @@ to-black
         width: `${2 + Math.random() * 3}px`,
         height: `${2 + Math.random() * 3}px`,
         background: "#f6c453",
-        boxShadow: "0 0 10px rgba(246,196,83,0.7)",
+       boxShadow: "0 0 4px rgba(246,196,83,0.35)",
       }}
     />
   ))}
