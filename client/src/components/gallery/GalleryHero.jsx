@@ -210,6 +210,7 @@ export default function GalleryHero() {
             projection="geoEqualEarth"
             projectionConfig={{
               scale: 300,
+              translate:[800,400],
             }}
             width={1600}
             height={800}
@@ -596,11 +597,11 @@ mapWrap: {
       : "700px",
 
   overflow: "hidden",
-
-  transform:
+marginTop:
     window.innerWidth < 768
-      ? "translateY(-5px)"
-      : "translateY(-60px)",
+      ? "-5px"
+      : "-60px",
+ 
 
   filter:
     "drop-shadow(0 0 100px rgba(0,0,0,0.5))",
