@@ -593,14 +593,10 @@ p-3 lg:p-5
   className="pt-10 pb-24 border-t border-gold-500/10"
 >
           <div className="container-premium">
-            <div className="max-w-3xl mb-20">
-              <span className="text-xs uppercase tracking-[0.45em] text-gold-400 font-mono">
-                Curriculum
-              </span>
-
-              <h2 className="text-5xl md:text-6xl font-display mt-5">
-                Structured Artistic Growth
-              </h2>
+           <div className="max-w-3xl mb-20">
+  <span className="text-[10px] uppercase tracking-[0.32em] text-gold-400 font-mono">
+    Curriculum
+  </span>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
