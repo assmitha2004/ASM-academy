@@ -52,11 +52,14 @@ const Hero = () => {
     <section
       ref={containerRef}
       className="
-        relative
-        safe-screen
-        overflow-hidden
-        bg-black
-      "
+relative
+safe-screen
+overflow-hidden
+bg-gradient-to-b
+from-black
+via-[#040404]
+to-black
+"
     >
       {/* ================================================= */}
       {/* BACKGROUND */}
@@ -86,8 +89,8 @@ const Hero = () => {
             className="
               absolute
 
-              left-[-28%]
-              sm:left-[-18%]
+              left-[-35%]
+              sm:left-[-25%]
 
               md:left-auto
               md:right-[-8%]
@@ -117,7 +120,7 @@ const Hero = () => {
               contrast-[1.08]
               saturate-[1.12]
 
-              opacity-100
+              opacity-55 md:opacity-100
             "
             style={{
               maskImage:
@@ -144,60 +147,23 @@ const Hero = () => {
             pointer-events-none
           "
           style={{
-            background: `
-              linear-gradient(
-                to right,
+  background: `
+    linear-gradient(
+      to right,
 
-                rgba(0,0,0,1) 0%,
-                rgba(0,0,0,0.995) 20%,
-                rgba(0,0,0,0.97) 34%,
-                rgba(0,0,0,0.88) 46%,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,0.98) 28%,
+      rgba(0,0,0,0.92) 48%,
 
-                rgba(8,5,0,0.62) 58%,
-                rgba(18,10,0,0.38) 68%,
+      rgba(0,0,0,0.55) 70%,
 
-                rgba(50,28,0,0.18) 78%,
-                rgba(120,72,0,0.08) 88%,
-
-                rgba(255,180,60,0.03) 95%,
-
-                rgba(0,0,0,0) 100%
-              )
-            `,
-          }}
+      rgba(0,0,0,0.12) 100%
+    )
+  `,
+}}
         />
 
-        {/* GOLD SIDE BLEND */}
-        <div
-          className="
-            absolute
-
-            top-0
-
-            left-[18%]
-            md:right-[18%]
-
-            h-full
-
-            w-[50%]
-            md:w-[32%]
-
-            z-10
-            pointer-events-none
-            mobile-glow
-          "
-          style={{
-            background: `
-              linear-gradient(
-                to left,
-                rgba(255,190,40,0.16),
-                rgba(255,170,20,0.08),
-                rgba(255,140,0,0.03),
-                transparent
-              )
-            `,
-          }}
-        />
+        
 
         {/* BIG ATMOSPHERE */}
         <div
@@ -222,51 +188,37 @@ const Hero = () => {
             mobile-glow
           "
           style={{
-            background: `
-              radial-gradient(
-                circle,
+  background: `
+    radial-gradient(
+      circle,
 
-                rgba(255,220,120,0.20) 0%,
-                rgba(255,190,60,0.14) 24%,
-                rgba(255,150,20,0.08) 42%,
-                rgba(255,120,0,0.03) 60%,
+      rgba(255,200,80,0.08) 0%,
+      rgba(255,170,40,0.04) 30%,
 
-                transparent 82%
-              )
-            `,
-          }}
+      transparent 72%
+    )
+  `,
+}}
         />
+        {/* SOFT GOLD MIST */}
+<div
+  className="
+    absolute
+    inset-0
+    z-0
+    pointer-events-none
+  "
+  style={{
+    background: `
+      radial-gradient(
+        circle at 70% 30%,
+        rgba(255,190,40,0.03),
+        transparent 45%
+      )
+    `,
+  }}
+/>
 
-        {/* FACE GLOW */}
-        <div
-          className="
-            absolute
-
-            top-[18%]
-
-            left-[8%]
-            md:left-auto
-            md:right-[22%]
-
-            w-[240px]
-            h-[240px]
-
-            sm:w-[320px]
-            sm:h-[320px]
-
-            lg:w-[700px]
-            lg:h-[700px]
-
-            rounded-full
-            z-0
-            opacity-60
-            mobile-glow
-          "
-          style={{
-            background:
-              "radial-gradient(circle, rgba(255,210,80,0.20) 0%, transparent 70%)",
-          }}
-        />
 
         {/* VIGNETTE */}
         <div
@@ -291,6 +243,32 @@ const Hero = () => {
           "
         />
       </motion.div>
+      {/* GOLD FLOATING PARTICLES */}
+<div className="absolute inset-0 z-5 pointer-events-none overflow-hidden">
+  {[...Array(18)].map((_, i) => (
+    <motion.div
+      key={i}
+      animate={{
+        y: [0, -40, 0],
+        opacity: [0.15, 0.6, 0.15],
+      }}
+      transition={{
+        duration: 4 + i * 0.5,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+      className="absolute rounded-full"
+      style={{
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        width: `${2 + Math.random() * 3}px`,
+        height: `${2 + Math.random() * 3}px`,
+        background: "#f6c453",
+        boxShadow: "0 0 10px rgba(246,196,83,0.7)",
+      }}
+    />
+  ))}
+</div>
 
       {/* GRID LINES */}
       <div className="absolute inset-0 z-10 opacity-10">
