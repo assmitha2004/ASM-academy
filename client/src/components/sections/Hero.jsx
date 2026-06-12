@@ -308,167 +308,382 @@ if (isSmallScreen === null) return null;
         </div>
       </motion.div>
 
-      {/* ====================================== */}
-      {/* CONTENT */}
-      {/* ====================================== */}
-      
+     {/* ====================================== */}
+{/* CONTENT */}
+{/* ====================================== */}
+
+{!isSmallScreen && (
+  <motion.div
+    style={{
+      opacity: opacity,
+    }}
+    className="
+      relative
+      z-20
+      safe-screen
+      flex
+      items-start
+      md:items-center
+    "
+  >
+    <div className="container-premium w-full px-5 sm:px-6 lg:px-16">
       <motion.div
-        style={{
-          opacity: isSmallScreen ? 1 : opacity,
-        }}
+        variants={staggerContainer(0.12, 0.15)}
+        initial="hidden"
+        animate="visible"
         className="
-          relative
-          z-20
-          safe-screen
+          max-w-[340px]
+          sm:max-w-xl
+          lg:max-w-3xl
+
           flex
+          flex-col
           items-start
-          md:items-center
+          text-left
+
+          pt-32
+          sm:pt-32
+          lg:pt-20
         "
       >
-        <div className="container-premium w-full px-5 sm:px-6 lg:px-16">
-          <motion.div
-            variants={staggerContainer(0.12, 0.15)}
-            initial="hidden"
-            animate="visible"
+        {/* TITLE */}
+        <motion.h1
+          variants={heroTextReveal}
+          className="
+            text-[clamp(2.6rem,7vw,5.8rem)]
+            leading-[0.92]
+            tracking-tight
+            font-bold
+            text-white
+          "
+        >
+          Where Voices
+          <br />
+
+          <span className="italic font-normal text-yellow-400">
+            Become Legends
+          </span>
+        </motion.h1>
+
+        {/* FOUNDER */}
+        <motion.div
+          variants={fadeUp}
+          className="
+            flex items-center gap-3
+            text-white/40
+            mt-6 sm:mt-8
+          "
+        >
+          <span className="h-px w-8 sm:w-12 bg-yellow-500/40" />
+
+          <span className="text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] font-mono">
+            Founded by Aadithya SM
+          </span>
+
+          <span className="h-px w-8 sm:w-12 bg-yellow-500/40" />
+        </motion.div>
+
+        {/* DESCRIPTION */}
+        <motion.p
+          variants={fadeUp}
+          className="
+            mt-5 sm:mt-6
+            max-w-md
+            text-sm
+            sm:text-lg
+            md:text-xl
+            leading-relaxed
+            text-white/75
+          "
+        >
+          A premium music conservatory where
+          world-class artists mentor the next
+          generation of singers, performers,
+          and composers.
+        </motion.p>
+
+        {/* BUTTONS */}
+        <motion.div
+          variants={fadeUp}
+          className="
+            flex
+            flex-col
+            sm:flex-row
+            items-start
+            sm:items-center
+            gap-5
+            mt-8 sm:mt-12
+          "
+        >
+          <Link to="/classes">
+            <Button size="lg">
+              Explore Classes
+            </Button>
+          </Link>
+
+          <div className="flex flex-wrap items-center gap-5 sm:gap-7">
+
+            <a
+              href="https://www.instagram.com/aadithya.sm?igsh=MWM4eGduajN3azJkeg=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2"
+            >
+              <Instagram className="h-4 w-4 text-yellow-400/70" />
+              <span className="text-sm text-white/55">
+                Instagram
+              </span>
+            </a>
+
+            <a
+              href="https://youtube.com/@aadithya_sm?si=_CVQoy_3XgmZIdVw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2"
+            >
+              <Youtube className="h-4 w-4 text-yellow-400/70" />
+              <span className="text-sm text-white/55">
+                YouTube
+              </span>
+            </a>
+
+            <a
+              href="https://open.spotify.com/artist/5mTcAgiWPNZovCBWAwHdvS?si=pj17YZneQLy9G6ElAh_UOA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2"
+            >
+              <Music2 className="h-4 w-4 text-yellow-400/70" />
+              <span className="text-sm text-white/55">
+                Spotify
+              </span>
+            </a>
+          </div>
+        </motion.div>
+      </motion.div>
+    </div>
+  </motion.div>
+)}
+{/* MOBILE ONLY */}
+
+{isSmallScreen && (
+  <motion.div
+    style={{
+      opacity: 1,
+    }}
+    className="
+      relative
+      z-20
+      safe-screen
+      flex
+      items-center
+    "
+  >
+    <div className="container-premium w-full px-5 sm:px-6">
+      <motion.div
+        variants={staggerContainer(0.12, 0.15)}
+        initial="hidden"
+        animate="visible"
+        className="
+          max-w-3xl
+          text-center
+          mx-auto
+          pt-24
+        "
+      >
+        {/* TOP LABEL */}
+        <motion.span
+          variants={fadeUp}
+          className="
+            text-xs
+            uppercase
+            tracking-[0.45em]
+            text-gold-400
+            font-mono
+          "
+        >
+          Structured Vocal Mentorship
+        </motion.span>
+
+        {/* TITLE */}
+        <motion.h1
+          variants={heroTextReveal}
+          className="
+            text-4xl
+            sm:text-5xl
+            font-display
+            leading-[0.94]
+            mt-5
+          "
+        >
+          Where Voices
+          <br />
+
+          <span className="italic text-gold-400">
+            Become Legends
+          </span>
+        </motion.h1>
+
+        {/* FOUNDER */}
+        <motion.div
+          variants={fadeUp}
+          className="
+            flex
+            items-center
+            justify-center
+            gap-3
+            text-white/40
+            mt-6
+          "
+        >
+          <span className="h-px w-8 bg-yellow-500/40" />
+
+          <span
             className="
-              max-w-[340px]
-              sm:max-w-xl
-              lg:max-w-3xl
-
-              flex
-              flex-col
-              items-start
-              text-left
-
-              pt-32
-              sm:pt-32
-              lg:pt-20
+              text-[10px]
+              uppercase
+              tracking-[0.3em]
+              font-mono
             "
           >
-            {/* TITLE */}
-            <motion.h1
-              variants={heroTextReveal}
-              className="
-                text-[clamp(2.6rem,7vw,5.8rem)]
-                leading-[0.92]
-                tracking-tight
-                font-bold
-                text-white
-              "
+            Founded by Aadithya SM
+          </span>
+
+          <span className="h-px w-8 bg-yellow-500/40" />
+        </motion.div>
+
+        {/* DESCRIPTION */}
+        <motion.p
+          variants={fadeUp}
+          className="
+            mt-6
+
+            max-w-[320px]
+            sm:max-w-[420px]
+
+            mx-auto
+
+            text-sm
+            sm:text-base
+
+            text-white/65
+            leading-7
+          "
+        >
+          A premium music conservatory where
+          world-class artists mentor the next
+          generation of singers, performers
+          and composers.
+        </motion.p>
+
+        {/* SOCIAL LINKS */}
+        <motion.div
+          variants={fadeUp}
+          className="
+            flex
+            flex-wrap
+            justify-center
+            items-center
+            gap-5
+            mt-8
+          "
+        >
+          <a
+            href="https://www.instagram.com/aadithya.sm?igsh=MWM4eGduajN3azJkeg=="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-2"
+          >
+            <Instagram className="h-4 w-4 text-yellow-400/70" />
+
+            <span className="text-sm text-white/55">
+              Instagram
+            </span>
+          </a>
+
+          <a
+            href="https://youtube.com/@aadithya_sm?si=_CVQoy_3XgmZIdVw"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-2"
+          >
+            <Youtube className="h-4 w-4 text-yellow-400/70" />
+
+            <span className="text-sm text-white/55">
+              YouTube
+            </span>
+          </a>
+
+          <a
+            href="https://open.spotify.com/artist/5mTcAgiWPNZovCBWAwHdvS?si=pj17YZneQLy9G6ElAh_UOA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-2"
+          >
+            <Music2 className="h-4 w-4 text-yellow-400/70" />
+
+            <span className="text-sm text-white/55">
+              Spotify
+            </span>
+          </a>
+        </motion.div>
+
+        {/* BUTTON */}
+        <div
+          className="
+            mt-8
+            flex
+            justify-center
+          "
+        >
+          <Link to="/classes">
+            <Button
+              size="lg"
+              className="min-w-[220px]"
             >
-              Where Voices
-              <br />
+              Explore Classes
+            </Button>
+          </Link>
+        </div>
 
-              <span className="italic font-normal text-yellow-400">
-                Become Legends
-              </span>
-            </motion.h1>
+        {/* TEXT LINKS */}
+        <div
+          className="
+            mt-5
+            flex
+            justify-center
+            items-center
+            gap-4
+            text-sm
+            text-white/55
+          "
+        >
+          <button
+            className="
+              hover:text-gold-400
+              transition-all
+            "
+          >
+            Explore Plans
+          </button>
 
-            {/* FOUNDER */}
-            <motion.div
-              variants={fadeUp}
-              className="
-                flex items-center gap-3
-                text-white/40
-                mt-6 sm:mt-8
-              "
-            >
-              <span className="h-px w-8 sm:w-12 bg-yellow-500/40" />
+          <span className="text-gold-400">
+            •
+          </span>
 
-              <span className="text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] font-mono">
-                Founded by Aadithya SM
-              </span>
-
-              <span className="h-px w-8 sm:w-12 bg-yellow-500/40" />
-            </motion.div>
-
-            {/* DESCRIPTION */}
-            <motion.p
-              variants={fadeUp}
-              className="
-                mt-5 sm:mt-6
-                max-w-md
-                text-sm
-                sm:text-lg
-                md:text-xl
-                leading-relaxed
-                text-white/75
-              "
-            >
-              A premium music conservatory where
-              world-class artists mentor the next
-              generation of singers, performers,
-              and composers.
-            </motion.p>
-
-            {/* BUTTONS */}
-            <motion.div
-              variants={fadeUp}
-              className="
-                flex
-                flex-col
-                sm:flex-row
-                items-start
-                sm:items-center
-                gap-5
-                mt-8 sm:mt-12
-              "
-            >
-              <Link to="/classes">
-                <Button size="lg">
-                  Explore Classes
-                </Button>
-              </Link>
-
-              <div className="flex flex-wrap items-center gap-5 sm:gap-7">
-
-                {/* INSTAGRAM */}
-                <a
-                  href="https://www.instagram.com/aadithya.sm?igsh=MWM4eGduajN3azJkeg=="
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 transition-all duration-300"
-                >
-                  <Instagram className="h-4 w-4 text-yellow-400/70 transition-all duration-300 group-hover:text-yellow-300 group-hover:scale-110" />
-
-                  <span className="text-sm tracking-wide text-white/55 transition-colors duration-300 group-hover:text-white">
-                    Instagram
-                  </span>
-                </a>
-
-                {/* YOUTUBE */}
-                <a
-                  href="https://youtube.com/@aadithya_sm?si=_CVQoy_3XgmZIdVw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 transition-all duration-300"
-                >
-                  <Youtube className="h-4 w-4 text-yellow-400/70 transition-all duration-300 group-hover:text-yellow-300 group-hover:scale-110" />
-
-                  <span className="text-sm tracking-wide text-white/55 transition-colors duration-300 group-hover:text-white">
-                    YouTube
-                  </span>
-                </a>
-
-                {/* SPOTIFY */}
-                <a
-                  href="https://open.spotify.com/artist/5mTcAgiWPNZovCBWAwHdvS?si=pj17YZneQLy9G6ElAh_UOA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 transition-all duration-300"
-                >
-                  <Music2 className="h-4 w-4 text-yellow-400/70 transition-all duration-300 group-hover:text-yellow-300 group-hover:scale-110" />
-
-                  <span className="text-sm tracking-wide text-white/55 transition-colors duration-300 group-hover:text-white">
-                    Spotify
-                  </span>
-                </a>
-              </div>
-            </motion.div>
-          </motion.div>
+          <button
+            className="
+              hover:text-gold-400
+              transition-all
+            "
+          >
+            Curriculum
+          </button>
         </div>
       </motion.div>
-
+    </div>
+  </motion.div>
+)}
       {/* SCROLL INDICATOR - DESKTOP ONLY */}
       {!isSmallScreen && (
         <motion.div
