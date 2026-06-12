@@ -130,40 +130,39 @@ const scrollToCurriculum = () => {
         {/* ================================================= */}
 
         <section className="relative min-h-screen overflow-hidden">
-          {/* IMAGE */}
-          <div className="absolute inset-0">
-             <img
-      src={heroImage}
-      alt="Aadithya SM"
-      className="
-        absolute
+          {{/* IMAGE — DESKTOP ONLY */}
+<div className="absolute inset-0 hidden lg:block">
+  <img
+    src={heroImage}
+    alt="Aadithya SM"
+    className="
+      absolute
+      right-[-6%]
+      top-[-2%]
 
-        right-[-6%]
-        top-[-2%]
+      h-[122%]
+      w-auto
+      max-w-none
 
-        h-[122%]
-        w-auto
-        max-w-none
+      object-cover
+      object-top
 
-        object-cover
-        object-top
+      scale-[1.08]
 
-        scale-[1.08]
+      brightness-[0.78]
+      contrast-[1.1]
+      saturate-[1.15]
 
-        brightness-[0.78]
-        contrast-[1.1]
-        saturate-[1.15]
-
-        opacity-100
-      "
-      style={{
-        maskImage:
-          "linear-gradient(to left, black 72%, transparent 100%)",
-        WebkitMaskImage:
-          "linear-gradient(to left, black 72%, transparent 100%)",
-      }}
-    />
-          </div>
+      opacity-100
+    "
+    style={{
+      maskImage:
+        "linear-gradient(to left, black 72%, transparent 100%)",
+      WebkitMaskImage:
+        "linear-gradient(to left, black 72%, transparent 100%)",
+    }}
+  />
+</div>
 
           {/* BLACK + GOLD MERGE */}
           <div
