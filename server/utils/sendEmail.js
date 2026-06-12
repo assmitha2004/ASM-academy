@@ -1,34 +1,28 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+// Initialize Resend
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const sendEmail = async (options) => {
-  console.log("sendEmail function started");
+  try {
+    console.log("sendEmail function started");
 
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
+    const response = await resend.emails.send({
+      from: "onboarding@resend.dev",   // temporary sender for testing
+      to: process.env.ADMIN_EMAIL,     // your email where inquiry arrives
+      reply_to: options.replyTo,       // user's email so you can reply directly
+      subject: options.subject,
 
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
+      text: options.message,
+    });
 
-  console.log("transporter created");
+    console.log("MAIL SENT SUCCESSFULLY");
+    console.log(response);
 
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
-    replyTo: options.replyTo,
-    subject: options.subject,
-    text: options.message,
-  };
-
-  console.log("sending mail...");
-
-  const info = await transporter.sendMail(mailOptions);
-
-  console.log("MAIL SENT:", info);
+  } catch (error) {
+    console.log("EMAIL FAILED:", error);
+    throw error;
+  }
 };
 
 export default sendEmail;
