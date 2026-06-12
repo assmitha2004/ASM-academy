@@ -1,8 +1,7 @@
 import nodemailer from "nodemailer";
 
 const sendEmail = async (options) => {
-  console.log("EMAIL_USER =", process.env.EMAIL_USER);
-  console.log("EMAIL_PASS =", process.env.EMAIL_PASS ? "EXISTS" : "MISSING");
+  console.log("sendEmail function started");
 
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -15,6 +14,8 @@ const sendEmail = async (options) => {
     },
   });
 
+  console.log("transporter created");
+
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
@@ -23,9 +24,11 @@ const sendEmail = async (options) => {
     text: options.message,
   };
 
-  await transporter.sendMail(mailOptions);
+  console.log("sending mail...");
 
-  console.log("EMAIL SENT SUCCESS");
+  const info = await transporter.sendMail(mailOptions);
+
+  console.log("MAIL SENT:", info);
 };
 
 export default sendEmail;
