@@ -448,6 +448,7 @@ const styles = {
     window.innerWidth < 768
       ? "center"
       : "left",
+      transform: "translateY(-100px)",
 },
   eyebrow: {
   display: "flex",
@@ -598,8 +599,8 @@ mapWrap: {
 
   transform:
     window.innerWidth < 768
-      ? "translateY(0px)"
-      : "translateY(-25px)",
+      ? "translateY(-5px)"
+      : "translateY(-60px)",
 
   filter:
     "drop-shadow(0 0 100px rgba(0,0,0,0.5))",
