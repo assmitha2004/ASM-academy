@@ -388,7 +388,7 @@ const styles = {
   root: {
     position: "relative",
     minHeight:
-  isMobile
+  isMobileGlobal
     ? "65vh"
     : "68vh",
     overflow: "hidden",
@@ -434,37 +434,37 @@ const styles = {
   display: "grid",
 
   gridTemplateColumns:
-    isMobile
+     isMobileGlobal
       ? "1fr"
       : "1.15fr 1fr",
 
   alignItems: "center",
 
   gap:
-    isMobile
+    isMobileGlobal
       ? "30px"
       : "20px",
 
 padding:
-isMobile
+ isMobileGlobal
 ? "85px 18px 20px"
 : "130px 90px 80px"
 },
 
  left: {
   maxWidth:
-    isMobile
+     isMobileGlobal
       ? "100%"
       : "560px",
 
   width: "100%",
 
   textAlign:
-    isMobile
+     isMobileGlobal
       ? "center"
       : "left",
       transform:
-    isMobile
+     isMobileGlobal
       ? "translateY(35px)"
       : "translateY(-100px)",
 },
@@ -472,7 +472,7 @@ isMobile
   display: "flex",
 
   justifyContent:
-   isMobile
+    isMobileGlobal
       ? "center"
       : "flex-start",
 
@@ -483,12 +483,12 @@ isMobile
   color: "#f6c453",
 
   letterSpacing:
-    isMobile
+    isMobileGlobal
       ? "2px"
       : "4px",
 
   fontSize:
-    isMobile
+     isMobileGlobal
       ? "10px"
       : "12px",
 
@@ -507,12 +507,12 @@ title: {
   display: "block",
 
   fontSize:
-    isMobile
+isMobileGlobal
       ? "32px"
       : "82px",
 
  lineHeight:
-  isMobile
+  isMobileGlobal
     ? 1.05
     : 0.95,
 
@@ -523,7 +523,7 @@ title: {
   margin: 0,
 
   textAlign:
-    isMobile
+    isMobileGlobal
       ? "center"
       : "left",
 
@@ -538,31 +538,31 @@ title: {
 
 subtitle: {
   marginTop:
-    isMobile
+    isMobileGlobal
       ? "18px"
       : "34px",
 
   color: "rgba(255,255,255,0.65)",
 
   fontSize:
-    isMobile
+   isMobileGlobal
       ? "14px"
       : "18px",
 
   lineHeight: 1.9,
 
   maxWidth:
-   isMobile
+   isMobileGlobal
       ? "320px"
       : "520px",
 
   textAlign:
-    isMobile
+   isMobileGlobal
       ? "center"
       : "left",
 
   padding:
-    isMobile
+    isMobileGlobal
       ? "0"
       : "0",
 },
@@ -603,24 +603,24 @@ subtitle: {
 
  mapWrap: {
   width:
-    isMobile
+   isMobileGlobal
       ? "100%"
       : "155%",
 
   marginLeft:
-    isMobile
+  isMobileGlobal
       ? "0%"
       : "-22%",
 
   height:
-    isMobile
+    isMobileGlobal
       ? "260px"
       : "700px",
 
   overflow: "hidden",
 
   marginTop:
-    isMobile
+    isMobileGlobal
       ? "-20px"
       : "-60px",
 
